@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Work.Models.Resource>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Resources</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResourceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResourceId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResourceName) --->
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResourceId)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ResourceName">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ResourceName">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ResourceName">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
